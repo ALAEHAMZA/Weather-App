@@ -1,4 +1,4 @@
-import './General.css';
+import './Weather.css';
 import axios from "axios";
 import React,{useState,useEffect} from 'react';
 import {BsSun} from 'react-icons/bs';
@@ -6,24 +6,26 @@ import {BsCloudy} from 'react-icons/bs';
 import {BsCloudRainHeavy} from "react-icons/bs"
 import {CiSearch} from "react-icons/ci" ;
 
-export default function General() {
+export default function Weather() {
     const [infos,setInfos]=useState([]);
     const [location,setLocation]=useState('Tetouan');
     const [input,setInput]=useState('');
 
-    const handleSubmit=(e)=>{
-        e.preventdefault();
+    const handleSubmit=()=>{
         setLocation(input);
     };
-
-    useEffect(()=>{
-        const getData=async() =>{
-            const res =await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=d1195038077f099ac192273d37c20b77`);
-            return res.data
+    useEffect(() => {
+        const getData = async () => {
+            const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=d1195038077f099ac192273d37c20b77`);
+            return res.data;
         };
+    
+        getData().then((infos) => setInfos(infos));
+        }, []);
 
-        getData().then((infos)=>setInfos(infos));
-    },[]);
+    console.log(infos);
+
+console.log(infos.main)
 
     let d = new Date();
     let date = d.getDate();
@@ -35,25 +37,25 @@ export default function General() {
         minute:'2-digit'
     });
 
+
     return(
         <div className="general">
             <div className='left'>
                 <h2 className='title'>the.weather</h2>
                 <div className="container">
-                    <div className="temp">{infos.main.temp}</div>
+                    <div className="temp"></div>
                     <div className="placeDate">
                         <div className="place">{infos.name}</div>
-                        <div className="date">{time} - {day},{month},{date},{year}</div>
+                        <div className="date">{time} - {day}, {date} {month}, {year}</div>
                     </div>
                     <div className="mainLogo">
                         <div className="logo"><BsSun/></div>
-                        <div className="main">{infos.weather}</div>
+                        <div className="main">{}</div>
                     </div>
                 </div>
             </div>
-
             <div className='right'>
-                <form className="search" onSubmit={handleSubmit}>
+                <div className="search">
                     <input 
                         type="text" 
                         placeholder='Another location'
@@ -61,8 +63,8 @@ export default function General() {
                         onChange={(e)=>setInput(e.target.value)}
                         required
                     />
-                    <button type='submit'><div><CiSearch/></div></button>
-                </form>
+                    <button type='submit' onClick={handleSubmit}><div><CiSearch/></div></button>
+                </div>
                 <div className="infos">
                     <h2>Weather Details</h2>
                     <div >
@@ -86,7 +88,12 @@ export default function General() {
                 </div>
             </div>
         </div>
-    );
-}
+    )
+};
+
+
+
+
+
 
 
