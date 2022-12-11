@@ -43,14 +43,14 @@ console.log(infos.main)
             <div className='left'>
                 <h2 className='title'>the.weather</h2>
                 <div className="container">
-                    <div className="temp"></div>
+                    <div className="temp">{infos.main.temp}</div>
                     <div className="placeDate">
                         <div className="place">{infos.name}</div>
                         <div className="date">{time} - {day}, {date} {month}, {year}</div>
                     </div>
                     <div className="mainLogo">
                         <div className="logo"><BsSun/></div>
-                        <div className="main">{}</div>
+                        <div className="main">{infos.weather[0]["main"]}</div>
                     </div>
                 </div>
             </div>
