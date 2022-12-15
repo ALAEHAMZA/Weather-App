@@ -1,6 +1,42 @@
-.general{
+.clouds{
     display: flex;
+    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0,0,0,0.3)),url(../../image/tom-barrett-hgGplX3PFBg-unsplash.jpg) ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
+.rain{
+    display: flex;
+    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0,0,0,0.3)),url(../../image/valentin-muller-bWtd1ZyEy6w-unsplash.jpg) ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.haze{
+    display: flex;
+    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0,0,0,0.3)),url(../../image/johannes-plenio-E-Zuyev2XWo-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.clair{
+    display: flex;
+    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0,0,0,0.3)),url(../../image/x-xtgONQzGgOE-unsplash.jpg) ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.snow{
+    display: flex;
+    background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0,0,0,0.3)),url(../../image/luc-van-loon--OF6_pKN2EM-unsplash.jpg) ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+
+
 .left{
     width: 70%;
     height: 100vh;
@@ -64,13 +100,15 @@ input{
     padding: 10px;
     background: transparent;
     border-bottom: 1px solid white;
+    color: white;
+    font-size: 20px;
 }
 input::placeholder{
     color: white;
     font-size: 15px;
 }
 
-button{
+.buttonSearch{
     width: 18%;
     border: none;
     outline: none;
@@ -81,7 +119,7 @@ button{
 .infos{
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 150px;
+    margin-top: 50px;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     padding-top: 20px;
@@ -93,7 +131,27 @@ h2{
 }
 
 .info{
-    margin-top: 15px;
+    margin-top: 25px;
     display: flex;
     justify-content: space-between;
+}
+
+.cities{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.city{
+    margin-top: 25px;
+}
+.city button{
+    background: none;
+    color: white;
+    font-size:medium;
+    border: none;
+}
+.city button:hover{
+    font-size:large;
+
 }
